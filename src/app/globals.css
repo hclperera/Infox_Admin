@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0f1117;
+  --color-foreground: #FFFFFF;
+  --color-surface: #1a1d27;
+  --color-hover: #252836;
+  --color-accent: #6C63FF;
+  --color-accent-secondary: #00D4AA;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #8B8FA3;
+  --color-danger: #FF6B6B;
+  --color-success: #51CF66;
+  --color-warning: #FFD43B;
+  --color-border: #2A2D3A;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Base */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2A2D3A #0f1117;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0f1117;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #2A2D3A;
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #3a3d4e;
+}
+
+body {
+  background: #0f1117;
+  color: #FFFFFF;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: #FFFFFF;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid rgba(108, 99, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  animation: fadeIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+
+/* Background grid pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(42, 45, 58, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 45, 58, 0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
