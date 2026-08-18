@@ -185,7 +185,7 @@ export default function AuditLogsPage() {
           <table className="w-full">
             <thead>
               <tr style={{ borderBottom: "1px solid #1E2D45" }}>
-                {["#", "Timestamp", "Admin", "Action", "Target User ID"].map((h) => (
+                {["#", "Timestamp", "Action", "Target User"].map((h) => (
                   <th
                     key={h}
                     className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider"
@@ -205,13 +205,13 @@ export default function AuditLogsPage() {
                     className="animate-pulse"
                     style={{ borderBottom: "1px solid rgba(30, 45, 69, 0.5)" }}
                   >
-                    {[...Array(5)].map((_, j) => (
+                    {[...Array(4)].map((_, j) => (
                       <td key={j} className="px-6 py-4">
                         <div
                           className="h-3 rounded"
                           style={{
                             background: "#1E2D45",
-                            width: j === 0 ? "30px" : j === 3 ? "90px" : `${80 + Math.random() * 60}px`,
+                            width: j === 0 ? "30px" : j === 2 ? "90px" : `${80 + Math.random() * 60}px`,
                           }}
                         />
                       </td>
@@ -220,7 +220,7 @@ export default function AuditLogsPage() {
                 ))
               ) : logs.length === 0 ? (
                 <tr>
-                  <td colSpan={5}>
+                  <td colSpan={4}>
                     <div className="flex flex-col items-center justify-center py-16 gap-3">
                       <ClipboardList size={48} style={{ color: "#1E2D45" }} />
                       <p className="text-sm font-semibold" style={{ color: "#8B9AB5" }}>
@@ -262,38 +262,42 @@ export default function AuditLogsPage() {
                       </span>
                     </td>
 
-                    {/* Admin username */}
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-2">
-                        <div
-                          className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold"
-                          style={{
-                            background: "linear-gradient(135deg, #0D6EFD, #00CFFF)",
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          {log.admin_username?.charAt(0).toUpperCase() || "A"}
-                        </div>
-                        <span className="text-sm font-medium" style={{ color: "#FFFFFF" }}>
-                          {log.admin_username || `Admin #${log.admin_id}`}
-                        </span>
-                      </div>
-                    </td>
-
                     {/* Action type */}
                     <td className="px-6 py-4">
                       <ActionBadge actionType={log.action_type} />
                     </td>
 
-                    {/* Target user ID */}
+                    {/* Target user */}
                     <td className="px-6 py-4">
                       <button
                         onClick={() => router.push(`/users/${log.target_user_id}`)}
-                        className="text-sm font-mono transition-colors duration-150 hover:underline"
-                        style={{ color: "#00CFFF" }}
+                        className="flex items-center gap-2 group"
                         title="View user profile"
                       >
-                        #{log.target_user_id}
+                        <div
+                          className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0"
+                          style={{
+                            background: "rgba(0, 207, 255, 0.12)",
+                            color: "#00CFFF",
+                            border: "1px solid rgba(0, 207, 255, 0.2)",
+                          }}
+                        >
+                          {log.target_username?.charAt(0).toUpperCase() || "?"}
+                        </div>
+                        <div className="text-left">
+                          <p
+                            className="text-sm font-medium group-hover:underline transition-all"
+                            style={{ color: "#FFFFFF" }}
+                          >
+                            {log.target_username}
+                          </p>
+                          <p
+                            className="text-xs font-mono"
+                            style={{ color: "#4a5670" }}
+                          >
+                            #{log.target_user_id}
+                          </p>
+                        </div>
                       </button>
                     </td>
                   </tr>
