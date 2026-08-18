@@ -1,6 +1,6 @@
 "use client";
 
-import { X, User, Settings, Mail, Calendar, Hash, Volume2, Globe, Mic } from "lucide-react";
+import { X, User, Settings, Mail, Calendar, Hash, Volume2, Vibrate, Mic } from "lucide-react";
 import { formatDateTime } from "@/utils/formatters";
 
 export default function UserDetailModal({ user, settings, onClose }) {
@@ -24,9 +24,9 @@ export default function UserDetailModal({ user, settings, onClose }) {
       <div
         className="relative w-full max-w-lg rounded-2xl overflow-hidden animate-in"
         style={{
-          background: "rgba(26, 29, 39, 0.95)",
+          background: "rgba(9, 13, 22, 0.97)",
           backdropFilter: "blur(20px)",
-          border: "1px solid #2A2D3A",
+          border: "1px solid #1E2D45",
           boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
           animation: "modalIn 0.3s ease-out",
         }}
@@ -35,20 +35,20 @@ export default function UserDetailModal({ user, settings, onClose }) {
         {/* Header */}
         <div
           className="flex items-center justify-between px-6 py-4"
-          style={{ borderBottom: "1px solid #2A2D3A" }}
+          style={{ borderBottom: "1px solid #1E2D45" }}
         >
           <div className="flex items-center gap-3">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: "rgba(108, 99, 255, 0.15)" }}
+              style={{ background: "rgba(13, 110, 253, 0.12)" }}
             >
-              <User size={20} style={{ color: "#6C63FF" }} />
+              <User size={20} style={{ color: "#0D6EFD" }} />
             </div>
             <div>
               <h2 className="text-lg font-bold" style={{ color: "#FFFFFF" }}>
                 {user.username}
               </h2>
-              <p className="text-xs" style={{ color: "#8B8FA3" }}>
+              <p className="text-xs" style={{ color: "#8B9AB5" }}>
                 User Details
               </p>
             </div>
@@ -113,9 +113,9 @@ export default function UserDetailModal({ user, settings, onClose }) {
                   value={settings.voice_type}
                 />
                 <InfoRow
-                  icon={Globe}
-                  label="Language"
-                  value={settings.language}
+                  icon={Vibrate}
+                  label="Haptic Vibration"
+                  value={settings.haptic_vibration ? "Enabled" : "Disabled"}
                 />
               </div>
             ) : (
@@ -155,7 +155,7 @@ function InfoRow({ icon: Icon, label, value, mono }) {
   return (
     <div
       className="flex items-center gap-3 px-4 py-3 rounded-xl"
-      style={{ background: "rgba(15, 17, 23, 0.5)" }}
+      style={{ background: "rgba(9, 13, 22, 0.6)" }}
     >
       <Icon size={16} style={{ color: "#8B8FA3", flexShrink: 0 }} />
       <span className="text-sm" style={{ color: "#8B8FA3", minWidth: "90px" }}>

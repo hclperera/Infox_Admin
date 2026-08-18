@@ -66,3 +66,14 @@ export async function getSignupTrend() {
   });
   return handleResponse(res);
 }
+
+export async function getAuditLogs(page = 1, perPage = 20) {
+  const params = new URLSearchParams({
+    page: String(page),
+    per_page: String(perPage),
+  });
+  const res = await fetch(`${API_URL}/admin/audit-logs?${params}`, {
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(res);
+}

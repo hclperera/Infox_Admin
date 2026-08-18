@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Users, LogOut, X, Menu } from "lucide-react";
+import { LayoutDashboard, Users, LogOut, X, Menu, ClipboardList } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import Image from "next/image";
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   { href: "/users", label: "Users", icon: Users },
+  { href: "/audit-logs", label: "Audit Logs", icon: ClipboardList },
 ];
 
 export default function Sidebar({ isOpen, onToggle }) {

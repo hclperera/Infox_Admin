@@ -89,10 +89,10 @@ export default function UsersPage() {
             className="text-2xl sm:text-3xl font-bold flex items-center gap-3"
             style={{ color: "#FFFFFF" }}
           >
-            <UsersIcon size={28} style={{ color: "#6C63FF" }} />
+            <UsersIcon size={28} style={{ color: "#0D6EFD" }} />
             Users
           </h1>
-          <p className="text-sm mt-1" style={{ color: "#8B8FA3" }}>
+          <p className="text-sm mt-1" style={{ color: "#8B9AB5" }}>
             Manage and monitor all registered users
           </p>
         </div>
@@ -100,9 +100,9 @@ export default function UsersPage() {
           <div
             className="px-4 py-2 rounded-xl text-sm font-medium"
             style={{
-              background: "rgba(108, 99, 255, 0.1)",
-              color: "#6C63FF",
-              border: "1px solid rgba(108, 99, 255, 0.2)",
+              background: "rgba(13, 110, 253, 0.1)",
+              color: "#0D6EFD",
+              border: "1px solid rgba(13, 110, 253, 0.2)",
             }}
           >
             {total} total user{total !== 1 ? "s" : ""}
@@ -110,9 +110,8 @@ export default function UsersPage() {
         )}
       </div>
 
-      {/* Search */}
       <div className="animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "backwards" }}>
-        <SearchBar value={search} onChange={handleSearch} />
+        <SearchBar value={search} onChange={handleSearch} placeholder="Search by email..." />
       </div>
 
       {/* Error */}
