@@ -11,7 +11,7 @@ import {
   Settings,
   Volume2,
   Mic,
-  Globe,
+  Vibrate,
   Trash2,
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
@@ -239,9 +239,9 @@ export default function UserDetailPage() {
                     value={userData.settings.voice_type}
                   />
                   <DetailField
-                    icon={Globe}
-                    label="Language"
-                    value={userData.settings.language}
+                    icon={Vibrate}
+                    label="Haptic Vibration"
+                    value={userData.settings.haptic_vibration ? "Enabled" : "Disabled"}
                   />
                 </div>
               ) : (
