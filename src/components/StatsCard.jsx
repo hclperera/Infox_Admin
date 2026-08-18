@@ -37,15 +37,15 @@ export default function StatsCard({ icon: Icon, label, value, color, delay = 0 }
   }, [value, isVisible]);
 
   const gradients = {
-    violet: "linear-gradient(135deg, rgba(108,99,255,0.15), rgba(108,99,255,0.05))",
-    teal: "linear-gradient(135deg, rgba(0,212,170,0.15), rgba(0,212,170,0.05))",
+    violet: "linear-gradient(135deg, rgba(13,110,253,0.15), rgba(13,110,253,0.05))",
+    teal: "linear-gradient(135deg, rgba(0,207,255,0.15), rgba(0,207,255,0.05))",
     warning: "linear-gradient(135deg, rgba(255,212,59,0.15), rgba(255,212,59,0.05))",
     success: "linear-gradient(135deg, rgba(81,207,102,0.15), rgba(81,207,102,0.05))",
   };
 
   const iconColors = {
-    violet: "#6C63FF",
-    teal: "#00D4AA",
+    violet: "#0D6EFD",
+    teal: "#00CFFF",
     warning: "#FFD43B",
     success: "#51CF66",
   };

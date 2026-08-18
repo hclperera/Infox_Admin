@@ -127,7 +127,7 @@ export default function UserDetailPage() {
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-bold"
                     style={{
-                      background: "linear-gradient(135deg, #6C63FF, #00D4AA)",
+                      background: "linear-gradient(135deg, #0D6EFD, #00CFFF)",
                       color: "#FFFFFF",
                     }}
                   >

@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Users, LogOut, X, Menu, Shield } from "lucide-react";
+import { LayoutDashboard, Users, LogOut, X, Menu } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
+import Image from "next/image";
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -29,9 +30,9 @@ export default function Sidebar({ isOpen, onToggle }) {
         onClick={onToggle}
         className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-xl transition-all duration-200 hover:scale-105"
         style={{
-          background: "rgba(26, 29, 39, 0.9)",
+          background: "rgba(9, 13, 22, 0.95)",
           backdropFilter: "blur(12px)",
-          border: "1px solid #2A2D3A",
+          border: "1px solid #1E2D45",
         }}
       >
         {isOpen ? (
@@ -48,27 +49,35 @@ export default function Sidebar({ isOpen, onToggle }) {
         }`}
         style={{
           width: "260px",
-          background: "rgba(26, 29, 39, 0.85)",
+          background: "rgba(9, 13, 22, 0.92)",
           backdropFilter: "blur(20px)",
-          borderRight: "1px solid #2A2D3A",
+          borderRight: "1px solid #1E2D45",
         }}
       >
         {/* Logo */}
         <div className="px-6 pt-8 pb-6">
           <div className="flex items-center gap-3">
             <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center"
+              className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden"
               style={{
-                background: "linear-gradient(135deg, #6C63FF, #00D4AA)",
+                background: "rgba(13, 110, 253, 0.08)",
+                boxShadow: "0 0 16px rgba(0, 207, 255, 0.15)",
               }}
             >
-              <Shield size={22} color="#FFFFFF" />
+              <Image
+                src="/logo.png"
+                alt="InfoX Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+                style={{ borderRadius: "10px" }}
+              />
             </div>
             <div>
               <h1 className="text-lg font-bold" style={{ color: "#FFFFFF" }}>
                 InfoX
               </h1>
-              <p className="text-xs" style={{ color: "#8B8FA3" }}>
+              <p className="text-xs" style={{ color: "#8B9AB5" }}>
                 Admin Panel
               </p>
             </div>
@@ -92,11 +101,11 @@ export default function Sidebar({ isOpen, onToggle }) {
                 className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group"
                 style={{
                   background: isActive
-                    ? "rgba(108, 99, 255, 0.15)"
+                    ? "rgba(13, 110, 253, 0.12)"
                     : "transparent",
-                  color: isActive ? "#6C63FF" : "#8B8FA3",
+                  color: isActive ? "#00CFFF" : "#8B9AB5",
                   borderLeft: isActive
-                    ? "3px solid #6C63FF"
+                    ? "3px solid #0D6EFD"
                     : "3px solid transparent",
                 }}
               >
@@ -104,7 +113,7 @@ export default function Sidebar({ isOpen, onToggle }) {
                   size={20}
                   className="transition-colors duration-200"
                   style={{
-                    color: isActive ? "#6C63FF" : "#8B8FA3",
+                    color: isActive ? "#00CFFF" : "#8B9AB5",
                   }}
                 />
                 <span className="group-hover:text-white transition-colors duration-200">

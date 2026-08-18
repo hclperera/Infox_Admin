@@ -44,7 +44,7 @@ export default function SearchBar({ value, onChange, placeholder = "Search users
           backdropFilter: "blur(12px)",
           border: "1px solid #2A2D3A",
           color: "#FFFFFF",
-          caretColor: "#6C63FF",
+          caretColor: "#0D6EFD",
         }}
       />
       {localValue && (
@@ -60,8 +60,8 @@ export default function SearchBar({ value, onChange, placeholder = "Search users
           color: #5a5d6e;
         }
         input:focus {
-          border-color: #6C63FF;
-          --tw-ring-color: rgba(108, 99, 255, 0.2);
+          border-color: #0D6EFD;
+          --tw-ring-color: rgba(13, 110, 253, 0.2);
         }
       `}</style>
     </div>

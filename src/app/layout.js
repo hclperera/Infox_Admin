@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         className="min-h-full"
-        style={{ background: "#0f1117", fontFamily: "'Inter', sans-serif" }}
+        style={{ background: "#090d16", fontFamily: "'Inter', sans-serif" }}
       >
         <AuthProvider>
           <ToastProvider>

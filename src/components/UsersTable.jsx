@@ -130,7 +130,7 @@ export default function UsersTable({
                         onView(user.user_id);
                       }}
                       className="p-2 rounded-lg transition-all duration-200 hover:scale-110"
-                      style={{ color: "#6C63FF" }}
+                      style={{ color: "#0D6EFD" }}
                       title="View user"
                     >
                       <Eye size={16} />
@@ -173,8 +173,8 @@ export default function UsersTable({
               disabled={page <= 1}
               className="p-2 rounded-lg transition-all duration-200 disabled:opacity-30"
               style={{
-                background: "rgba(108, 99, 255, 0.1)",
-                color: "#6C63FF",
+                background: "rgba(13, 110, 253, 0.1)",
+                color: "#0D6EFD",
               }}
             >
               <ChevronLeft size={18} />
@@ -198,9 +198,9 @@ export default function UsersTable({
                   style={{
                     background:
                       page === pageNum
-                        ? "linear-gradient(135deg, #6C63FF, #5a52e0)"
+                        ? "linear-gradient(135deg, #0D6EFD, #0056d6)"
                         : "transparent",
-                    color: page === pageNum ? "#FFFFFF" : "#8B8FA3",
+                    color: page === pageNum ? "#FFFFFF" : "#8B9AB5",
                   }}
                 >
                   {pageNum}
@@ -212,8 +212,8 @@ export default function UsersTable({
               disabled={page >= totalPages}
               className="p-2 rounded-lg transition-all duration-200 disabled:opacity-30"
               style={{
-                background: "rgba(108, 99, 255, 0.1)",
-                color: "#6C63FF",
+                background: "rgba(13, 110, 253, 0.1)",
+                color: "#0D6EFD",
               }}
             >
               <ChevronRight size={18} />

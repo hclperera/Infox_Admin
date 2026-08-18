@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { Shield, Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import Image from "next/image";
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -40,14 +41,14 @@ export default function LoginPage() {
       <div
         className="fixed top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(108,99,255,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(13,110,253,0.10) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
       <div
         className="fixed bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,207,255,0.07) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -58,13 +59,19 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div
-            className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center"
+            className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center overflow-hidden"
             style={{
-              background: "linear-gradient(135deg, #6C63FF, #00D4AA)",
-              boxShadow: "0 8px 30px rgba(108, 99, 255, 0.3)",
+              background: "rgba(13, 110, 253, 0.08)",
+              boxShadow: "0 8px 30px rgba(0, 207, 255, 0.2), 0 0 0 1px rgba(13, 110, 253, 0.15)",
             }}
           >
-            <Shield size={32} color="#FFFFFF" />
+            <Image
+              src="/logo.png"
+              alt="InfoX Logo"
+              width={80}
+              height={80}
+              className="object-contain"
+            />
           </div>
           <h1
             className="text-2xl font-bold"
@@ -81,9 +88,9 @@ export default function LoginPage() {
         <div
           className="rounded-2xl p-8"
           style={{
-            background: "rgba(26, 29, 39, 0.7)",
+            background: "rgba(9, 13, 22, 0.8)",
             backdropFilter: "blur(20px)",
-            border: "1px solid #2A2D3A",
+            border: "1px solid #1E2D45",
             boxShadow: "0 20px 60px rgba(0, 0, 0, 0.4)",
           }}
         >
@@ -118,10 +125,10 @@ export default function LoginPage() {
                 autoComplete="username"
                 className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2"
                 style={{
-                  background: "rgba(15, 17, 23, 0.8)",
-                  border: "1px solid #2A2D3A",
+                  background: "rgba(9, 13, 22, 0.9)",
+                  border: "1px solid #1E2D45",
                   color: "#FFFFFF",
-                  caretColor: "#6C63FF",
+                  caretColor: "#0D6EFD",
                 }}
               />
             </div>
@@ -143,10 +150,10 @@ export default function LoginPage() {
                   autoComplete="current-password"
                   className="w-full px-4 py-3 pr-12 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2"
                   style={{
-                    background: "rgba(15, 17, 23, 0.8)",
-                    border: "1px solid #2A2D3A",
+                    background: "rgba(9, 13, 22, 0.9)",
+                    border: "1px solid #1E2D45",
                     color: "#FFFFFF",
-                    caretColor: "#6C63FF",
+                    caretColor: "#0D6EFD",
                   }}
                 />
                 <button
@@ -169,9 +176,9 @@ export default function LoginPage() {
               disabled={isLoading}
               className="w-full py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 flex items-center justify-center gap-2"
               style={{
-                background: "linear-gradient(135deg, #6C63FF, #5a52e0)",
+                background: "linear-gradient(135deg, #0D6EFD, #0056d6)",
                 color: "#FFFFFF",
-                boxShadow: "0 4px 20px rgba(108, 99, 255, 0.3)",
+                boxShadow: "0 4px 20px rgba(13, 110, 253, 0.35)",
               }}
             >
               {isLoading ? (
@@ -199,8 +206,8 @@ export default function LoginPage() {
           color: #5a5d6e;
         }
         input:focus {
-          border-color: #6C63FF !important;
-          --tw-ring-color: rgba(108, 99, 255, 0.2);
+          border-color: #0D6EFD !important;
+          --tw-ring-color: rgba(13, 110, 253, 0.2);
         }
       `}</style>
     </div>

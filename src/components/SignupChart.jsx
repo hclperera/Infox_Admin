@@ -26,7 +26,7 @@ function CustomTooltip({ active, payload, label }) {
       <p className="text-xs font-medium mb-1" style={{ color: "#8B8FA3" }}>
         {formatChartDate(label)}
       </p>
-      <p className="text-lg font-bold" style={{ color: "#6C63FF" }}>
+      <p className="text-lg font-bold" style={{ color: "#0D6EFD" }}>
         {payload[0].value}{" "}
         <span className="text-xs font-normal" style={{ color: "#8B8FA3" }}>
           signups
@@ -82,8 +82,8 @@ export default function SignupChart({ data }) {
         >
           <defs>
             <linearGradient id="signupGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#6C63FF" stopOpacity={0.3} />
-              <stop offset="100%" stopColor="#6C63FF" stopOpacity={0} />
+              <stop offset="0%" stopColor="#0D6EFD" stopOpacity={0.35} />
+              <stop offset="100%" stopColor="#00CFFF" stopOpacity={0} />
             </linearGradient>
           </defs>
           <CartesianGrid
@@ -109,15 +109,15 @@ export default function SignupChart({ data }) {
           <Area
             type="monotone"
             dataKey="count"
-            stroke="#6C63FF"
+            stroke="#0D6EFD"
             strokeWidth={2.5}
             fill="url(#signupGradient)"
             dot={false}
             activeDot={{
               r: 6,
-              stroke: "#6C63FF",
+              stroke: "#00CFFF",
               strokeWidth: 2,
-              fill: "#1a1d27",
+              fill: "#090d16",
             }}
           />
         </AreaChart>

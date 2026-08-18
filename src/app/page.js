@@ -158,7 +158,7 @@ export default function DashboardPage() {
               <button
                 onClick={() => router.push("/users")}
                 className="flex items-center gap-1.5 text-sm font-medium transition-all duration-200 hover:gap-2.5 group"
-                style={{ color: "#6C63FF" }}
+                style={{ color: "#0D6EFD" }}
               >
                 View All
                 <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
