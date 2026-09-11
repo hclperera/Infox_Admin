@@ -6,6 +6,26 @@ import { adminLogin as apiLogin } from "@/lib/api";
 
 const AuthContext = createContext(null);
 
+function isTokenValid(token) {
+  if (!token) return false;
+  try {
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      window
+        .atob(base64)
+        .split("")
+        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join("")
+    );
+    const decoded = JSON.parse(jsonPayload);
+    // JWT exp is in seconds, Date.now() is in milliseconds
+    return decoded.exp * 1000 > Date.now();
+  } catch (e) {
+    return false; // If token is invalid or malformed
+  }
+}
+
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -14,8 +34,10 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
-    if (token) {
+    if (token && isTokenValid(token)) {
       setIsAuthenticated(true);
+    } else if (token) {
+      localStorage.removeItem("admin_token");
     }
     setIsLoading(false);
   }, []);
@@ -25,6 +47,25 @@ export function AuthProvider({ children }) {
       router.push("/login");
     }
   }, [isLoading, isAuthenticated, pathname, router]);
+
+  const logout = useCallback(() => {
+    localStorage.removeItem("admin_token");
+    setIsAuthenticated(false);
+    router.push("/login");
+  }, [router]);
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    const interval = setInterval(() => {
+      const token = localStorage.getItem("admin_token");
+      if (token && !isTokenValid(token)) {
+        logout();
+      }
+    }, 60000); // Check every minute
+
+    return () => clearInterval(interval);
+  }, [isAuthenticated, logout]);
 
   const login = useCallback(async (username, password) => {
     const data = await apiLogin(username, password);
@@ -37,11 +78,7 @@ export function AuthProvider({ children }) {
     throw new Error("Login failed");
   }, [router]);
 
-  const logout = useCallback(() => {
-    localStorage.removeItem("admin_token");
-    setIsAuthenticated(false);
-    router.push("/login");
-  }, [router]);
+
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, isLoading, login, logout }}>

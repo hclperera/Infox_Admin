@@ -10,6 +10,13 @@ function getAuthHeaders() {
 }
 
 async function handleResponse(res) {
+  if (res.status === 401) {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("admin_token");
+      window.location.href = "/login";
+    }
+    throw new Error("Session expired. Please log in again.");
+  }
   if (!res.ok) {
     const error = await res.json().catch(() => ({ detail: "Request failed" }));
     throw new Error(error.detail || `HTTP ${res.status}`);
